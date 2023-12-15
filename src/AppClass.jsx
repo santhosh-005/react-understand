@@ -1,30 +1,23 @@
-import { Component } from "react";
-import "./App.css"
-import elephant from "./images/elephant.jpeg";
+import React, { Component } from "react";
+import imageData from "./Components/DataComponent";
 
-export default class AppClass extends Component{
-  
-  imageData = ()=>{
-    let data = [
-      {
-        id:1,
-        img:elephant
-      },
-      {
-        id:2,
-        img:elephant
-      },
-      {
-        id:3,
-        img:elephant
-      },
-      {
-        id:4,
-        img:elephant
-      }
-    ]
-    return data;
+export class AppClass extends Component {
+  render() {
+    return (
+      <div>
+        <h1>USING CLASS COMPONENT</h1>
+        <div className="grid">
+          {imageData().map((el) => {
+            return (
+              <div id={el.id}>
+                <img src={el.img} alt="" />
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    );
   }
-
-  // code here
 }
+
+export default AppClass;
